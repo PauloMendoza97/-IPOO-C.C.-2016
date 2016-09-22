@@ -11,7 +11,7 @@ int strend(char *s, char *t)
         t++;
         cont++;
     }
-    while(cont!=0)
+    while(cont>=0)
     {
         if(*s==*t)
         {
