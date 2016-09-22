@@ -1,7 +1,7 @@
-/*5.4:  Escriba la función strend(s,t), que regresa 1 si la cadena t se presenta al final de la cadena s, y cero si no es así.*/
+/*5.4:  Escriba la funciÃ³n strend(s,t), que regresa 1 si la cadena t se presenta al final de la cadena s, y cero si no es asÃ­.*/
 #include <stdio.h>
 
-char strend(char *s, char *t)
+int strend(char *s, char *t)
 {
     int cont=0;
     while(*s!='\0')
