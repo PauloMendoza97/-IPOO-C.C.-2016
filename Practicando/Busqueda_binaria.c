@@ -2,7 +2,7 @@
 
 int main(){
     int a,result,l[8]={4,5,5,7,8,19,58,75};
-    a=7;
+    a=58;
     result=binsearch(a,l,8);
 
     printf("EL orden es: %d\n",result);
