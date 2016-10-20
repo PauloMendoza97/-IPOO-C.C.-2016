@@ -7,7 +7,7 @@ typedef struct nodo{
     struct nodo *next;
 }_nodo;
 
-//Funci髇 para crear una lista
+//Funci贸n para crear una lista
 _nodo *crear_lista(int n)
 {
     int i;
@@ -31,7 +31,7 @@ _nodo *crear_lista(int n)
     else return 0;
 }
 
-//Funci髇 para imprimir una lista
+//Funci贸n para imprimir una lista
 void imprimir_lista(_nodo *temp)
 {
     _nodo *t;
@@ -43,25 +43,33 @@ void imprimir_lista(_nodo *temp)
     }
 }
 
-//Funci髇 para borrar un nodo
-void borrar_nodo(_nodo *temp, int key)
+//Funci贸n para borrar un nodo
+void borrar_nodo(_nodo **temp1,_nodo *temp, int key)
 {
     _nodo *cur,*prev;
     prev=temp;
-    cur=temp->next;
-    while(cur!=NULL)
+    if(prev->val==key)
     {
-        if(cur->val==key)
-        {
-            prev->next=cur->next;
-            free(cur);
-            break;
-        }
-        prev=cur;
-        cur=cur->next;
+        _nodo *cur=*temp1;
+        *temp1=cur->next;
+        free(cur);
     }
-
+    else{
+        cur=temp->next;
+        while(cur!=NULL)
+        {
+            if(cur->val==key)
+            {
+                prev->next=cur->next;
+                free(cur);
+                break;
+            }
+            prev=cur;
+            cur=cur->next;
+        }
+    }
 }
+
 
 //Insertar nodo en el inicio de una lista
 _nodo *insertar_nodoinicio(_nodo *temp,int n)
@@ -74,7 +82,7 @@ _nodo *insertar_nodoinicio(_nodo *temp,int n)
     return adicional;
 }
 
-//*Funci髇 para hallar la cantidad de listas
+//*Funci贸n para hallar la cantidad de listas
 int cantidad(_nodo *temp)
 {
     int i=0;
@@ -105,7 +113,7 @@ _nodo *insertar_nodomedio(_nodo *temp, int n)
     return cur;
 }
 
-//Funci髇 para ordenar listas
+//Funci贸n para ordenar listas
 void ordenar_listas(_nodo *temp)
 {
     _nodo *prev,*cur;
@@ -130,7 +138,7 @@ void ordenar_listas(_nodo *temp)
     }
 }
 
-//funci髇 para concatenar listas
+//funci贸n para concatenar listas
 void concatenar_listas(_nodo *temp_1,_nodo *temp_2)
 {
     int i;
@@ -143,7 +151,7 @@ void concatenar_listas(_nodo *temp_1,_nodo *temp_2)
     a->next=b;
 }
 
-//Iniciar funci髇 main
+//Iniciar funci贸n main
 int main()
 {
     _nodo *Primero=crear_lista(5);
@@ -153,8 +161,8 @@ int main()
     imprimir_lista(Primero);
     printf("\t\t");
     imprimir_lista(Segundo);
-    printf("\n\nBorrar nodo 3: \t");
-    borrar_nodo(Primero,3);
+    printf("\n\nBorrar nodo 1: \t");
+    borrar_nodo(&Primero,Primero,1);
     imprimir_lista(Primero);
     printf("\n\nInsertar nodo 23 al inicio: \t");
     imprimir_lista(insertar_nodoinicio(Segundo,23));
