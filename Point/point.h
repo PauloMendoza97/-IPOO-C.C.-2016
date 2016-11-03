@@ -2,100 +2,43 @@
 using namespace std;
 
 class Point{
-
 private:
-
-	double x, y;
-
+    double x,y;
 public:
+    //constructores
+    Point();
+    Point(double a, double b);
+    Point(Point &temp);
 
-	Point(){
-
-		x = 0.0;
-		y = 0.0;
-
-	}
-
-	Point (Point &o){
-
-		x = o.x;
-		y = o.y;
-
-	}
-
-	Point (double nx, double ny){
-
-		x = nx;
-		y = ny;
-
-	}
-
-	double getX() const;
-
-	double getY() const;
-
-	void setX(double nx);
-
-	void setY(double ny);
-
-	void printPoint();
-
-	void modifyPoint(double nx, double ny);
+    //atributos
+    double getX() const;
+    double getY() const;
+    void setX(double a);
+    void setY(double b);
+    void printPoint();
+    void modifyPoint(double x, double y);
 
 };
 
-
 class PointArray{
-
 private:
-
-	int size;
-	Point *points;
-
+    int size;
+    Point *points;
 public:
+    //cnstructores
+    PointArray();
+    PointArray(const Point Points_1[], const int Size_1);
+    PointArray(const PointArray &pv);
 
-	PointArray(){
-
-		size = 0;
-		points = new Point[0];
-
-	}
-
-	PointArray (const Point ptsToCopy[], const int toCopySize){
-
-		size = toCopySize ;
-		points = new Point [ toCopySize ];
-		for(int i = 0; i < toCopySize ; ++i)
-			points [i] = ptsToCopy [i];
-
-	}
-
-
-	PointArray(const PointArray &pv){
-
-		size = pv.size;
-		points = new Point[size];
-		for(int i = 0; i < size; i++)
-			points[i] = pv.points[i];
-
-	}
-
-	void resize(int newSize);
-
-	int getSize() const;
-
-	void clear();
-
-	void push_back(const Point &p);
-
-	void insert(const int pos, const Point &p);
-
-	void remove(const int pos);
-
+    //atributos
+    void resize(int newSize);
+    int getSize() const;//Obtener el tamaño del arreglo
+	void push_back(const Point &p);//Adicionar un POINT al final del arreglo
+	void insert(const int pos, const Point &p);//Insertar un PUNTO en una posición del arreglo
+	void remove(const int pos);//Eliminiar un punto en una posición esecífica
+	void clear();//Eliminar todos lo elementos y setear en el tamaño cero
 	Point *get(const int pos);
-
 	const Point *get(const int pos) const;
-
-	void printArr();
+	void printArray();
 
 };
