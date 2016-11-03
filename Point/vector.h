@@ -1,5 +1,4 @@
-#include <iostream>
-using namespace std;
+#include "Point.cpp"
 
 class Vector{
 
@@ -93,3 +92,4 @@ public:
 	void printArr();
 
 };
+
