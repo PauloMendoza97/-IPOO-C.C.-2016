@@ -1,0 +1,38 @@
+STATIC y CONST diferencias:
+-STATIC: Es para declarar una variable estática, similar a lo que antes usábamos como #define, Y cada vez que cambiemos su valor será de manera general, para acceder a ella si es creada en una clase, debe declararse PUBLIC.
+-CONST: Una constante tendrá el mismo valor y no la podrás modificar, 
+Ni los constructores ni los destructores pueden ser métodos constantes porque prácticamente siempre realizan alguna modificación en el objeto durante la inicialización o la terminación. 
+
+
+UNION, STRUCT y CLASS diferencias:
+
+-STRUCT: Es una palabra reservada en C que indica que los elementos que vienen agrupados a continuación entre llaves componen una estructura. Es para declarar nuevas variables.
+Son PUBLIC
+
+-CLASS: Es casi lo mismo que una estructura en C, con la diferencia de que existen tres especificadores de acceso “public, protected y private”
+
+-UNION: Es similar a "estructura", La diferencia entre las dos es que en una estructura, los miembros ocupan diferentes áreas de la memoria, pero en una unión, los miembros ocupan la misma área de memoria. 
+El tamaño de una unión es el de su miembro de mayor tamaño.
+
+
+Paso por REFERENCIA y por VALOR:
+
+-Por valor solo modifica a una copia de la variable, no al original.
+-Por referencia sin embargo, se modifica al valor original, y se debe pasar de e parámetro junto con e símbolo “&”
+
+
+Definición de ENCAPSULAMIENTO, HERENCIA y POLIMORFISMO:
+
+-Encapsulamiento: Es el ocultamiento del estado, es decir, de los datos miembro de un objeto de manera que sólo se pueda cambiar mediante las operaciones definidas para ese objeto.
+Formas de encapsular:
+1.	Estándar (Predeterminado)
+2.	Abierto: Hace que el miembro de la clase pueda ser accedido desde el exterior de la Clase y cualquier parte del programa.
+3.	Protegido: Solo es accesible desde la Clase y las clases que heredan (a cualquier nivel).
+4.	Semi cerrado: Solo es accesible desde la clase heredada.
+5.	Cerrado: Solo es accesible desde la Clase.
+
+-HERENCIAS: La herencia facilita la creación de objetos a partir de otros ya existentes e implica que una subclase obtiene todo el comportamiento (métodos) y eventualmente los atributos (variables) de su superclase.
+Se pueden crear nuevas clases partiendo de una clase o de una jerarquía de clases preexistente (ya comprobadas y verificadas) evitando con ello el rediseño, la modificación y verificación de la parte ya implementada.
+
+-POLIMORFISMO: Se refiere a la propiedad por la que es posible enviar mensajes sintácticamente iguales a objetos de tops distintos. El único requisito que deben cumplir los objetos que se utilizan de manera polimórfica es saber responder al mensaje que se les envía.
+Para esto se utiliza la palabra VIRTUAL en la clase principal
